@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
             write.println(String.format(
                     "<h1>Username %s doesn't exist. Please, sign up to continue</h1>", user
             ));
-            RequestDispatcher rd = servletContext.getRequestDispatcher("/formLogin.html");
+            RequestDispatcher rd = servletContext.getRequestDispatcher("/login.html");
             rd.include(req, resp);
         }
         else {
@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
                 rd.forward(req, resp);
             } else {
                 write.println("<h1>Wrong password</h1>");
-                RequestDispatcher rd = servletContext.getRequestDispatcher("/formLogin.html");
+                RequestDispatcher rd = servletContext.getRequestDispatcher("/login.html");
                 rd.include(req, resp);
             }
         }

@@ -17,7 +17,7 @@ public class RegisterServlet extends HttpServlet {
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            req.getRequestDispatcher("/formRegister.html").forward(req, resp);
+            req.getRequestDispatcher("/register.html").forward(req, resp);
         }
 
         @Override
@@ -38,12 +38,12 @@ public class RegisterServlet extends HttpServlet {
 
             if ("admin".equals(user)) {
                 write.println("<h1>You can't create user with username \"admin\"</h1>");
-                RequestDispatcher rd = servletContext.getRequestDispatcher("/formRegister.html");
+                RequestDispatcher rd = servletContext.getRequestDispatcher("/register.html");
                 rd.include(req, resp);
             }
             if (userExists(user)) {
                 write.println("<h1>User with this username already exists</h1>");
-                RequestDispatcher rd = servletContext.getRequestDispatcher("/formRegister.html");
+                RequestDispatcher rd = servletContext.getRequestDispatcher("/register.html");
                 rd.include(req, resp);
             }
             createUser(user, pass);
